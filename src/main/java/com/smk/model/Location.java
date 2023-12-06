@@ -2,7 +2,6 @@ package com.smk.model;
 
 public class Location extends Model{
     private long id;
-
     private String name;
 
     public long getId() {

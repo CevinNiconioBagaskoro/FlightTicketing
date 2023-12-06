@@ -13,8 +13,7 @@ import java.util.Optional;
 public class LocationDao implements Dao<Location, Integer> {
 
     private final Optional<Connection> connection;
-
-    public LocationDao(){
+    public LocationDao() {
         connection = JdbcConnection.getConnection();
     }
 
@@ -27,7 +26,7 @@ public class LocationDao implements Dao<Location, Integer> {
     public Collection<Location> getAll() {
         Collection<Location> result = new LinkedList<>();
         String sql = "SELECT * from location";
-        connection.ifPresent(connection -> {
+        connection.ifPresent(connection ->{
             try {
                 PreparedStatement ps = connection.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
@@ -39,12 +38,13 @@ public class LocationDao implements Dao<Location, Integer> {
                     location.setId(id);
                     location.setName(name);
                     result.add(location);
+
                 }
-            } catch (SQLException e) {
+            }catch (SQLException e) {
                 e.printStackTrace();
             }
-        });
-        return null;
+        } );
+        return result;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class LocationDao implements Dao<Location, Integer> {
     }
 
     @Override
-    public Collection<Integer> search(String keyword) {
+    public Collection<Location> search(String keyword) {
         return null;
     }
 }

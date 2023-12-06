@@ -1,10 +1,10 @@
 package com.smk.model;
 
+
 import java.util.Date;
 
 public abstract class Model {
     protected Date dateCreated;
-
     protected Date lastModified;
     protected String createdBy;
     protected String updatedBy;
